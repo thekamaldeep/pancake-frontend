@@ -64,7 +64,7 @@ const StepCard: React.FC<{ step: Step }> = ({ step }) => {
         <Text mb="16px" fontSize="12px" bold textAlign="right" textTransform="uppercase">
           {step.label}
         </Text>
-        <Heading fontFamily={'Super Tasty'} fontSize="16px !important"  mb="16px" scale="lg" color="secondary">
+        <Heading fontFamily={'Super Tasty'} fontSize="16px !important" mb="16px" scale="lg" color="secondary">
           {step.title}
         </Heading>
         <Text color="textSubtle">{step.subtitle}</Text>

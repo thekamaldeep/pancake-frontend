@@ -7,7 +7,7 @@ export const getLOTTPriceInUSD = async () => {
     // @ts-ignore
     price = result.data['safemoon-2'].usd
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
   return price
 }
