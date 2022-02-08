@@ -42,7 +42,7 @@ const RewardBracketDetail: React.FC<RewardBracketDetailProps> = ({
   const [prizeInBusd, setPrizeInBusd] = useState(0)
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       const lottPrice = await getLOTTPriceInUSD()
       setPrizeInBusd(lottPrice)
     })()

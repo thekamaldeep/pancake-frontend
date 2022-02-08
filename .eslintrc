@@ -15,6 +15,9 @@
   "rules": {
     "no-console": ["warn", { "allow": ["info", "warn", "error", "debug"] }],
     "no-plusplus": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    "import/order": 0,
+    "react/jsx-curly-brace-presence": 0,
     "prefer-destructuring": ["warn", { "object": true, "array": false }],
     "no-underscore-dangle": 0,
     "import/prefer-default-export": 0,
