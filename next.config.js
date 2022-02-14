@@ -22,6 +22,10 @@ const config = {
   experimental: {
     styledComponents: true,
   },
+  images: {
+    loader: "imgix",
+    path: "",
+  },
   reactStrictMode: true,
   async rewrites() {
     return [

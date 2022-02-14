@@ -18,8 +18,7 @@
     "prepare": "husky install",
     "postinstall": "yarn run typechain",
     "typechain": "typechain --out-dir src/config/abi/types --target=ethers-v5 \"src/config/abi/*.json\"",
-    "export": "yarn build && next export",
-    "output": "next export -o outdir"
+    "export": "next export"
   },
   "browserslist": {
     "production": [

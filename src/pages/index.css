@@ -15,14 +15,8 @@
 .KtpvB {
     display: none !important;
 }
-.gTnEN {
-    z-index: 0 !important;
-}
 .site-logo {
     position: fixed;
-    display: flex;
-    align-items: center;
-    top: -44px;
     left: 30px;
 }
 .site-logo >  div {
@@ -74,9 +68,6 @@
 /* ------------------------ Production -------------------- */
 .dJoqat {
     display: none !important; 
-}
-.kuaSqQ {
-    z-index: 0 !important; 
 }
 .jZuZkW {
     display: none !important;
