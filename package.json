@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "analyze": "ANALYZE=true yarn build",
-    "dev": "next dev",
+    "dev": "set PORT=3005 && next dev",
     "build": "next build",
     "start": "next start",
     "test": "jest",
