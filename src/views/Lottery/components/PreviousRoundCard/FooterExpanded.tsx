@@ -78,7 +78,7 @@ const PreviousRoundCardFooter: React.FC<{ lotteryNodeData: LotteryRound; lottery
         {prizeInBusd.isNaN() ? (
           <Skeleton my="7px" height={40} width={200} />
         ) : (
-          <Heading scale="xl" lineHeight="1" color="secondary">
+          <Heading fontSize='24px !important' scale="xl" lineHeight="1" color="secondary">
             ${Number(convertToDecimals(prizeInBusd))}
           </Heading>
         )}
