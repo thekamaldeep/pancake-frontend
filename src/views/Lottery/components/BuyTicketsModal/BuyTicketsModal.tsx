@@ -36,7 +36,7 @@ import ApproveConfirmButtons, { ButtonArrangement } from 'components/ApproveConf
 import NumTicketsToBuyButton from './NumTicketsToBuyButton'
 import EditNumbersModal from './EditNumbersModal'
 import { useTicketsReducer } from './useTicketsReducer'
-import { TOKEN_NAME } from 'config/constants'
+import { DEFAULT_DECIMALS, TOKEN_NAME } from 'config/constants'
 
 const StyledModal = styled(Modal)`
   min-width: 280px;
@@ -92,7 +92,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
   const cakePriceBusd = usePriceCakeBusd()
   const dispatch = useAppDispatch()
   const hasFetchedBalance = fetchStatus === FetchStatus.Fetched
-  const userCakeDisplayBalance = getFullDisplayBalance(userCake, 18, 3)
+  const userCakeDisplayBalance = getFullDisplayBalance(userCake, DEFAULT_DECIMALS, 3)
 
   const TooltipComponent = () => (
     <>
@@ -205,7 +205,7 @@ const BuyTicketsModal: React.FC<BuyTicketsModalProps> = ({ onDismiss }) => {
     const discountBeingApplied = costBeforeDiscount.minus(costAfterDiscount)
     setTicketCostBeforeDiscount(costBeforeDiscount.gt(0) ? getFullDisplayBalance(costBeforeDiscount) : '0')
     setTotalCost(costAfterDiscount.gt(0) ? getFullDisplayBalance(costAfterDiscount) : '0')
-    setDiscountValue(discountBeingApplied.gt(0) ? getFullDisplayBalance(discountBeingApplied, 18, 5) : '0')
+    setDiscountValue(discountBeingApplied.gt(0) ? getFullDisplayBalance(discountBeingApplied, DEFAULT_DECIMALS, 5) : '0')
   }, [ticketsToBuy, priceTicketInCake, discountDivisor, getTicketCostAfterDiscount])
 
   const getNumTicketsByPercentage = (percentage: number): number => {

@@ -3,6 +3,7 @@ import { BigNumber as EthersBigNumber, FixedNumber } from '@ethersproject/bignum
 import { formatUnits } from '@ethersproject/units'
 import { getLanguageCodeFromLS } from 'contexts/Localization/helpers'
 import { BIG_TEN } from './bigNumber'
+import { DEFAULT_DECIMALS } from 'config/constants'
 
 /**
  * Take a formatted amount, e.g. 15 BNB and convert it to full decimal value, e.g. 15000000000000000
@@ -18,15 +19,15 @@ export const getBalanceAmount = (amount: BigNumber, decimals = 18) => {
 /**
  * This function is not really necessary but is used throughout the site.
  */
-export const getBalanceNumber = (balance: BigNumber, decimals = 18) => {
+export const getBalanceNumber = (balance: BigNumber, decimals = DEFAULT_DECIMALS) => {
   return getBalanceAmount(balance, decimals).toNumber()
 }
 
-export const convertToDecimals = (balance: BigNumber, decimals = 18) => {
+export const convertToDecimals = (balance: BigNumber, decimals = DEFAULT_DECIMALS) => {
   return getBalanceAmount(balance, decimals).toFixed(4)
 }
 
-export const getFullDisplayBalance = (balance: BigNumber, decimals = 18, displayDecimals?: number) => {
+export const getFullDisplayBalance = (balance: BigNumber, decimals = DEFAULT_DECIMALS, displayDecimals?: number) => {
   return getBalanceAmount(balance, decimals).toFixed(displayDecimals)
 }
 
@@ -42,7 +43,7 @@ export const formatNumber = (number: number, minPrecision = 2, maxPrecision = 2)
  * Method to format the display of wei given an EthersBigNumber object
  * Note: does NOT round
  */
-export const formatBigNumber = (number: EthersBigNumber, displayDecimals = 18, decimals = 18) => {
+export const formatBigNumber = (number: EthersBigNumber, displayDecimals = DEFAULT_DECIMALS, decimals = DEFAULT_DECIMALS) => {
   const remainder = number.mod(EthersBigNumber.from(10).pow(decimals - displayDecimals))
   return formatUnits(number.sub(remainder), decimals)
 }
@@ -51,7 +52,7 @@ export const formatBigNumber = (number: EthersBigNumber, displayDecimals = 18, d
  * Method to format the display of wei given an EthersBigNumber object with toFixed
  * Note: rounds
  */
-export const formatBigNumberToFixed = (number: EthersBigNumber, displayDecimals = 18, decimals = 18) => {
+export const formatBigNumberToFixed = (number: EthersBigNumber, displayDecimals = DEFAULT_DECIMALS, decimals = DEFAULT_DECIMALS) => {
   const formattedString = formatUnits(number, decimals)
   return (+formattedString).toFixed(displayDecimals)
 }
@@ -60,7 +61,7 @@ export const formatBigNumberToFixed = (number: EthersBigNumber, displayDecimals 
  * Formats a FixedNumber like BigNumber
  * i.e. Formats 9763410526137450427.1196 into 9.763 (3 display decimals)
  */
-export const formatFixedNumber = (number: FixedNumber, displayDecimals = 18, decimals = 18) => {
+export const formatFixedNumber = (number: FixedNumber, displayDecimals = DEFAULT_DECIMALS, decimals = DEFAULT_DECIMALS) => {
   // Remove decimal
   const [leftSide] = number.toString().split('.')
   return formatBigNumber(EthersBigNumber.from(leftSide), displayDecimals, decimals)
